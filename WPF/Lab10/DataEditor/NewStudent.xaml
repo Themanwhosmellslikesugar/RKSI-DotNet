@@ -5,27 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp3"
         mc:Ignorable="d"
-        Title="NewStudent" Height="450" Width="800">
+        Title="NewStudent" Height="450" Width="666.444">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="DataTemplate.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            
+
             <local:Student x:Key="NewStudent"/>
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
-        <StackPanel Margin="0">
-            <ContentControl Content="{StaticResource NewStudent}" Height="372" ContentTemplate="{StaticResource studentDataTemplate}"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="297*"/>
+            <ColumnDefinition Width="32*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="226*"/>
+            <RowDefinition Height="193*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.RowSpan="2" Margin="0,0,0,10" Grid.ColumnSpan="2" Background="#FFD1D1D1">
+            <ContentControl Content="{StaticResource NewStudent}" Height="372" ContentTemplate="{StaticResource studentDataTemplate}" Margin="101,0,20,0" RenderTransformOrigin="0.499,-0.018"/>
             <Grid Height="30">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="5*"/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Button Content="OK" Grid.Column="1" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="75" IsDefault="True"/>
-                <Button Content="Cancel" Grid.Column="2" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="75" IsCancel="True"/>
+                <Button Content="OK" HorizontalAlignment="Center" Margin="433,5,56,5" VerticalAlignment="Center" Width="75" IsDefault="True" Click="OkButton_Click" Grid.ColumnSpan="2" BorderBrush="White" Foreground="Black" Background="White"/>
+                <Button Content="Cancel" Grid.Column="1" HorizontalAlignment="Center" Margin="76,5,37,5" VerticalAlignment="Center" Width="75" IsCancel="True" Click="CancelButton_Click" BorderBrush="White" Background="White" Grid.ColumnSpan="2"/>
             </Grid>
         </StackPanel>
 

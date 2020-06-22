@@ -58,13 +58,11 @@ namespace WpfApp3
         {
             //dataSource.data.Add(new Student(Guid.NewGuid().ToString()));
             NewStudent newStudentDialog = new NewStudent();
-            newStudentDialog.ShowDialog();
-            dataSource.data.Add(newStudentDialog.Student);
 
-            //if (newStudentDialog.ShowDialog() == true)
-            //{
-            //    dataSource.data.Add(newStudentDialog.Student);
-            //}
+            if (newStudentDialog.ShowDialog() == true)
+            {
+                dataSource.data.Add(newStudentDialog.Student);
+            }
         }
 
         private void RemoveButton_Click(object sender, RoutedEventArgs e)
@@ -101,6 +99,11 @@ namespace WpfApp3
                     dataSource = serializer.Deserialize(fs) as StringDataSource;
                 }
             }
+        }
+
+        private void NewMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            dataSource = new StringDataSource();
         }
     }
 }
